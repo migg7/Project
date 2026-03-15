@@ -1,0 +1,62 @@
+[
+  {
+    "subject": "Aviation Meteorology",
+    "chapterName": "Atmosphere Basics",
+    "questions": [
+      {
+        "questionText": "What is the approximate composition of the atmosphere by volume?",
+        "options": ["78% Oxygen, 21% Nitrogen", "78% Nitrogen, 21% Oxygen", "50% Nitrogen, 50% Oxygen", "90% Nitrogen, 10% Oxygen"],
+        "correctAnswerIndex": 1,
+        "explanation": "The atmosphere consists primarily of Nitrogen (78%) and Oxygen (21%), with 1% being other trace gases."
+      },
+      {
+        "questionText": "In which layer of the atmosphere does almost all weather occur?",
+        "options": ["Stratosphere", "Mesosphere", "Troposphere", "Thermosphere"],
+        "correctAnswerIndex": 2,
+        "explanation": "The troposphere contains about 75-80% of the atmosphere's mass and almost all its water vapor, making it the primary region for weather."
+      },
+      {
+        "questionText": "What is the standard sea level pressure in hPa?",
+        "options": ["1013.25", "29.92", "1000", "1024"],
+        "correctAnswerIndex": 0,
+        "explanation": "International Standard Atmosphere (ISA) defines sea level pressure as 1013.25 hPa or 29.92 inches of mercury."
+      }
+    ]
+  },
+  {
+    "subject": "Air Navigation",
+    "chapterName": "General Navigation",
+    "questions": [
+      {
+        "questionText": "What is the shape of the Earth assumed for most navigation purposes?",
+        "options": ["Perfect Sphere", "Oblate Spheroid", "Flat Plane", "Prolate Spheroid"],
+        "correctAnswerIndex": 1,
+        "explanation": "The Earth's rotation causes it to bulge at the equator, resulting in an oblate spheroid shape."
+      },
+      {
+        "questionText": "A Great Circle is defined as:",
+        "options": ["Any circle on the Earth's surface", "A circle whose plane passes through the center of the Earth", "A line of constant heading", "A small circle parallel to the Equator"],
+        "correctAnswerIndex": 1,
+        "explanation": "A Great Circle represents the shortest distance between two points on a sphere, and its plane passes through the sphere's center."
+      }
+    ]
+  },
+  {
+    "subject": "Air Regulation",
+    "chapterName": "Rules of the Air",
+    "questions": [
+      {
+        "questionText": "Who has the final authority as to the operation of an aircraft?",
+        "options": ["Air Traffic Control", "The Chief Pilot of the airline", "The Pilot-in-Command", "The Aircraft Owner"],
+        "correctAnswerIndex": 2,
+        "explanation": "The Pilot-in-Command is directly responsible for, and is the final authority as to, the operation of that aircraft."
+      },
+      {
+        "questionText": "When two aircraft are approaching head-on, or approximately so, each shall:",
+        "options": ["Turn left", "Turn right", "Change altitude", "Maintain course"],
+        "correctAnswerIndex": 1,
+        "explanation": "Rules of the air specify that each aircraft shall alter its heading to the right to avoid a collision."
+      }
+    ]
+  }
+]
