@@ -1,5 +1,5 @@
 [build]
-  command = "npm.cmd run build --prefix frontend"
+  command = "npm run build --prefix frontend"
   publish = "frontend/build"
 
 [functions]
