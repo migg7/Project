@@ -11,6 +11,7 @@ const fs = require('fs');
 
 // 3️⃣ Create app
 const app = express();
+const serverless = require('serverless-http');
 
 // 4️⃣ Middlewares
 const allowedOrigins = [
@@ -97,16 +98,19 @@ app.get(
 // 🔟 MongoDB connect
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-
     console.log('MongoDB Connected ✅');
 
-    const PORT = process.env.PORT || 5000;
-
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT} 🚀`);
-    });
-
+    // Only listen if not running as a function (Standalone/Vercel/Local)
+    if (!process.env.NETLIFY) {
+        const PORT = process.env.PORT || 5000;
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT} 🚀`);
+        });
+    }
   })
   .catch(err => {
     console.error('MongoDB Connection Error ❌:', err.message);
   });
+
+module.exports = app;
+module.exports.handler = serverless(app);

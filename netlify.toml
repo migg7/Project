@@ -1,0 +1,21 @@
+[build]
+  command = "npm.cmd run build --prefix frontend"
+  publish = "frontend/build"
+
+[functions]
+  directory = "backend"
+  external_node_modules = ["express", "mongoose", "cors", "dotenv", "multer", "bcryptjs", "jsonwebtoken", "nodemailer", "serverless-http"]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/server/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  NODE_VERSION = "24.12.0"
