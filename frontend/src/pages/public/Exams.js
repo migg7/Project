@@ -17,7 +17,7 @@ const Exams = () => {
     useEffect(() => {
         const fetchExams = async () => {
             try {
-                const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/public/exams`);
+                const res = await axios.get(`/api/public/exams`);
                 setExams(res.data);
             } catch (err) {
                 console.error("Error fetching exams", err);
@@ -94,7 +94,7 @@ const Exams = () => {
 
     const submitReport = async () => {
         try {
-            await axios.post("http://localhost:5000/api/public/report", {
+            await axios.post("/api/public/report", {
                 examId: selectedExam._id,
                 questionId: reportingQuestion._id || reportingQuestion.index, // Fallback if no ID
                 questionText: reportingQuestion.questionText,

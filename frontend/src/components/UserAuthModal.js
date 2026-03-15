@@ -14,7 +14,7 @@ const UserAuthModal = ({ onClose, onAuthSuccess }) => {
     setLoading(true);
     setError("");
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/auth/google`, {
+      const res = await axios.post(`/api/auth/google`, {
         token: credentialResponse.credential
       });
       localStorage.setItem("token", res.data.token);
@@ -37,7 +37,7 @@ const UserAuthModal = ({ onClose, onAuthSuccess }) => {
 
     try {
       if (mode === "login") {
-        const res = await axios.post(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/auth/login`, {
+        const res = await axios.post(`/api/auth/login`, {
           email: formData.email,
           password: formData.password
         });
@@ -45,7 +45,7 @@ const UserAuthModal = ({ onClose, onAuthSuccess }) => {
         localStorage.setItem("user", JSON.stringify(res.data.user));
         alert("Login successful! ✅");
       } else {
-        const res = await axios.post(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/auth/signup`, {
+        const res = await axios.post(`/api/auth/signup`, {
           name: formData.name,
           email: formData.email,
           password: formData.password

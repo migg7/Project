@@ -7,7 +7,7 @@ const Notifications = () => {
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/public/notifications`);
+                const res = await axios.get(`/api/public/notifications`);
                 setNotifications(res.data);
             } catch (err) {
                 console.error("Error fetching notifications", err);

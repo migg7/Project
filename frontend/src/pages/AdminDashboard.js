@@ -47,7 +47,7 @@ function AdminDashboard() {
     const formData = new FormData();
     formData.append("image", file);
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/upload`, formData, {
+      const res = await axios.post(`/api/upload`, formData, {
         headers: { "Content-Type": "multipart/form-data" }
       });
       setUrl(res.data.imageUrl);
@@ -71,35 +71,35 @@ function AdminDashboard() {
 
   const fetchNotifications = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/notifications`, headers);
+      const res = await axios.get(`/api/admin/notifications`, headers);
       setNotifications(res.data);
     } catch (err) { handleAuthError(err); }
   };
 
   const fetchPrograms = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/programs`, headers);
+      const res = await axios.get(`/api/admin/programs`, headers);
       setPrograms(res.data);
     } catch (err) { handleAuthError(err); }
   };
 
   const fetchMedicals = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/medicals`, headers);
+      const res = await axios.get(`/api/admin/medicals`, headers);
       setMedicals(res.data);
     } catch (err) { handleAuthError(err); }
   };
 
   const fetchCareers = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/howtobecome`, headers);
+      const res = await axios.get(`/api/admin/howtobecome`, headers);
       setCareers(res.data);
     } catch (err) { handleAuthError(err); }
   };
 
   const fetchExams = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/exams`, headers);
+      const res = await axios.get(`/api/admin/exams`, headers);
       setExams(res.data);
     } catch (err) { handleAuthError(err); }
   };
@@ -121,7 +121,7 @@ function AdminDashboard() {
 
   const addNotification = async () => {
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/notifications`, { title, link, imageUrl: notificationImage }, headers);
+      await axios.post(`/api/admin/notifications`, { title, link, imageUrl: notificationImage }, headers);
       setTitle("");
       setLink("");
       setNotificationImage("");
@@ -132,7 +132,7 @@ function AdminDashboard() {
 
   const addProgram = async () => {
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/programs`, { name: programName, type: programType, description: programDesc, imageUrl: programImage }, headers);
+      await axios.post(`/api/admin/programs`, { name: programName, type: programType, description: programDesc, imageUrl: programImage }, headers);
       fetchPrograms();
       alert("Program added successfully");
     } catch (err) { alert("Failed to add program"); handleAuthError(err); }
@@ -140,7 +140,7 @@ function AdminDashboard() {
 
   const addMedical = async () => {
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/medicals`, { title: medicalTitle, description: medicalDesc, imageUrl: medicalImage }, headers);
+      await axios.post(`/api/admin/medicals`, { title: medicalTitle, description: medicalDesc, imageUrl: medicalImage }, headers);
       fetchMedicals();
       alert("Medical added successfully");
     } catch (err) { alert("Failed to add medical"); handleAuthError(err); }
@@ -148,7 +148,7 @@ function AdminDashboard() {
 
   const addCareer = async () => {
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/howtobecome`, { role, details, link: careerLink, imageUrl: careerImage }, headers);
+      await axios.post(`/api/admin/howtobecome`, { role, details, link: careerLink, imageUrl: careerImage }, headers);
       fetchCareers();
       alert("Career added successfully");
     } catch (err) { alert("Failed to add career"); handleAuthError(err); }
@@ -156,7 +156,7 @@ function AdminDashboard() {
 
   const addExam = async () => {
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/exams`, {
+      await axios.post(`/api/admin/exams`, {
         subject: examSubject,
         chapterName: examChapter,
         questions: examQuestions,
@@ -176,35 +176,35 @@ function AdminDashboard() {
 
   const deleteNotification = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/notifications/${id}`, headers);
+      await axios.delete(`/api/admin/notifications/${id}`, headers);
       fetchNotifications();
     } catch (err) { alert("Failed to delete notification"); handleAuthError(err); }
   };
 
   const deleteProgram = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/programs/${id}`, headers);
+      await axios.delete(`/api/admin/programs/${id}`, headers);
       fetchPrograms();
     } catch (err) { alert("Failed to delete program"); handleAuthError(err); }
   };
 
   const deleteMedical = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/medicals/${id}`, headers);
+      await axios.delete(`/api/admin/medicals/${id}`, headers);
       fetchMedicals();
     } catch (err) { alert("Failed to delete medical"); handleAuthError(err); }
   };
 
   const deleteCareer = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/howtobecome/${id}`, headers);
+      await axios.delete(`/api/admin/howtobecome/${id}`, headers);
       fetchCareers();
     } catch (err) { alert("Failed to delete career"); handleAuthError(err); }
   };
 
   const deleteExam = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/exams/${id}`, headers);
+      await axios.delete(`/api/admin/exams/${id}`, headers);
       fetchExams();
     } catch (err) { alert("Failed to delete exam"); handleAuthError(err); }
   };
@@ -214,14 +214,14 @@ function AdminDashboard() {
 
   const fetchReports = async () => {
     try {
-      const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/reports`, headers);
+      const res = await axios.get(`/api/admin/reports`, headers);
       setReports(res.data);
     } catch (err) { handleAuthError(err); }
   };
 
   const updateReportStatus = async (id, status) => {
     try {
-      await axios.put(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/reports/${id}`, { status }, headers);
+      await axios.put(`/api/admin/reports/${id}`, { status }, headers);
       fetchReports();
       alert("Report updated");
     } catch (err) { alert("Failed to update report"); handleAuthError(err); }
@@ -229,7 +229,7 @@ function AdminDashboard() {
 
   const deleteReport = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/admin/reports/${id}`, headers);
+      await axios.delete(`/api/admin/reports/${id}`, headers);
       fetchReports();
       alert("Report deleted");
     } catch (err) { alert("Failed to delete report"); handleAuthError(err); }

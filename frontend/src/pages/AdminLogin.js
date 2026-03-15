@@ -11,7 +11,7 @@ function AdminLogin() {
     try {
 
       const res = await axios.post(
-        `${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/auth/login`,
+        `/api/auth/login`,
         {
           email,
           password

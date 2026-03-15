@@ -7,7 +7,7 @@ const Careers = () => {
     useEffect(() => {
         const fetchCareers = async () => {
             try {
-                const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/public/careers`);
+                const res = await axios.get(`/api/public/careers`);
                 setCareers(res.data);
             } catch (err) {
                 console.error("Error fetching careers", err);

@@ -7,7 +7,7 @@ const Programs = () => {
     useEffect(() => {
         const fetchPrograms = async () => {
             try {
-                const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/public/programs`);
+                const res = await axios.get(`/api/public/programs`);
                 setPrograms(res.data);
             } catch (err) {
                 console.error("Error fetching programs", err);

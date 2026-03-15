@@ -7,7 +7,7 @@ const Medicals = () => {
     useEffect(() => {
         const fetchMedicals = async () => {
             try {
-                const res = await axios.get(`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/api/public/medicals`);
+                const res = await axios.get(`/api/public/medicals`);
                 setMedicals(res.data);
             } catch (err) {
                 console.error("Error fetching medicals", err);
